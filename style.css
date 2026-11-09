@@ -1,0 +1,140 @@
+/* Aufbau: dunkler Nebel-Ton, viel Ruhe, Bücher als ruhige Reihe; ein moosgrüner Akzent wie Flussstein */
+:root {
+  --grund: #15191c;
+  --grund-2: #1d2327;
+  --nebel: #d9dedf;
+  --nebel-leise: #9aa4a8;
+  --moos: #a7b89a;
+  --linie: #2c3439;
+  --max: 1060px;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--grund); color: var(--nebel);
+  font-family: var(--sans); font-size: 18px; line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--moos); text-underline-offset: 3px; }
+a:hover { color: var(--nebel); }
+a:focus-visible { outline: 2px solid var(--moos); outline-offset: 3px; }
+
+.wrap {
+  max-width: var(--max); margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.schmal { max-width: 720px; }
+
+.kopf { border-bottom: 1px solid var(--linie); }
+.kopf .wrap { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 20px 16px; }
+.marke { font-family: var(--serif); font-size: 1.35rem; color: var(--nebel); text-decoration: none; letter-spacing: .02em; }
+.nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.nav a { color: var(--nebel-leise); text-decoration: none; font-size: .95rem; }
+.nav a:hover { color: var(--nebel); }
+
+section { padding-block: 64px; }
+
+.einstieg {
+  padding-block: 110px 90px;
+  background:
+    radial-gradient(ellipse 70% 60% at 75% 30%, rgba(217,222,223,.10), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 15% 85%, rgba(167,184,154,.08), transparent 70%),
+    var(--grund);
+}
+.ort { font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--moos); margin: 0 0 22px; }
+.einstieg h1 {
+  font-family: var(--serif); font-weight: 400; font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 1.02; margin: 0 0 30px; letter-spacing: -.01em; text-wrap: balance;
+}
+.lead { max-width: 34em; font-size: 1.15rem; color: var(--nebel-leise); margin: 0; }
+
+.neu { background: var(--grund-2); border-block: 1px solid var(--linie); }
+.neu-raster { display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: 56px; align-items: start; }
+
+.titel { font-family: var(--serif); font-weight: 400; font-size: 2rem; margin: 0 0 8px; text-wrap: balance; }
+.art { font-size: .76rem; letter-spacing: .16em; text-transform: uppercase; color: var(--moos); margin: 0 0 10px; }
+.art a { color: inherit; text-decoration: none; }
+.buch-text { min-width: 0; }
+.buch-text h2, .buch-text h3 { font-family: var(--serif); font-weight: 400; font-size: 1.9rem; line-height: 1.15; margin: 0 0 6px; text-wrap: balance; }
+.unterzeile { font-family: var(--serif); font-style: italic; color: var(--nebel-leise); margin: 0 0 22px; font-size: 1.1rem; }
+.buch-text p { max-width: 38em; margin: 0 0 1em; }
+.meta { font-size: .88rem; color: var(--nebel-leise); }
+blockquote {
+  margin: 8px 0 22px; padding-left: 18px; border-left: 2px solid var(--moos);
+  font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--nebel); max-width: 34em;
+}
+
+.buch { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 48px; padding-block: 48px; border-top: 1px solid var(--linie); }
+#buecher .titel { margin-bottom: 24px; }
+
+.cover {
+  aspect-ratio: 2 / 3; max-width: 100%; border-radius: 2px; overflow: hidden;
+  background: var(--grund-2); box-shadow: 0 18px 40px -16px rgba(0,0,0,.7);
+}
+.cover img { width: 100%; height: 100%; object-fit: cover; }
+.cover-text { display: flex; flex-direction: column; justify-content: space-between; padding: 24px 20px; border: 1px solid var(--linie); }
+.cover-text .t { font-family: var(--serif); font-size: 1.5rem; line-height: 1.15; }
+.cover-text .a { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--nebel-leise); }
+
+.knopf {
+  display: inline-block; padding: 10px 20px; border-radius: 999px; border: 1px solid var(--nebel-leise);
+  color: var(--nebel); text-decoration: none; font-size: .95rem; margin-top: 6px;
+}
+.knopf:hover { border-color: var(--nebel); }
+.knopf.voll { background: var(--nebel); color: var(--grund); border-color: var(--nebel); }
+.knopf.voll:hover { background: var(--moos); border-color: var(--moos); color: var(--grund); }
+
+.hinweis { font-size: .85rem; color: var(--nebel-leise); border-top: 1px solid var(--linie); padding-top: 24px; margin: 0; }
+
+.zwei { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 48px; }
+.zwei > div { min-width: 0; }
+.zwei p { max-width: 36em; margin: 0 0 1em; }
+.noir, .notizen { border-top: 1px solid var(--linie); }
+#elise { border-top: 1px solid var(--linie); }
+
+.liste { list-style: none; margin: 0; padding: 0; }
+.liste li { display: flex; justify-content: space-between; gap: 16px; padding-block: 14px; border-bottom: 1px solid var(--linie); flex-wrap: wrap; }
+.liste a { color: var(--nebel); text-decoration: none; font-family: var(--serif); font-size: 1.15rem; }
+.liste a:hover { color: var(--moos); }
+.liste span { color: var(--nebel-leise); font-size: .85rem; white-space: nowrap; }
+
+.kontakt { background: var(--grund-2); border-top: 1px solid var(--linie); }
+.kontakt p { color: var(--nebel-leise); max-width: 34em; }
+
+.beitrag { padding-block: 64px 88px; }
+.beitrag h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; margin: 0 0 32px; text-wrap: balance; }
+.beitrag h2 { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; margin: 36px 0 10px; }
+.beitrag p { margin: 0 0 1.1em; }
+.vers { font-family: var(--serif); font-size: 1.12rem; line-height: 1.75; }
+
+.fuss { border-top: 1px solid var(--linie); padding-block: 28px 40px; font-size: .88rem; color: var(--nebel-leise); }
+.fuss .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.fuss a { color: var(--nebel-leise); }
+
+@media (max-width: 760px) {
+  body { font-size: 17px; }
+  section { padding-block: 48px; }
+  .einstieg { padding-block: 64px 56px; }
+  .neu-raster, .buch, .zwei { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .cover { width: 200px; }
+}
+
+:root{color-scheme:dark}
+
+/* Ergänzungen: Porträt, Notizen, Blättern */
+.portraet { margin-top: 24px; width: 100%; max-width: 300px; aspect-ratio: 9 / 13; object-fit: cover; object-position: 50% 20%; filter: grayscale(1) contrast(1.05); border-radius: 2px; }
+.beitrag .lead { margin-bottom: 32px; }
+.beitrag .art a { color: var(--moos); }
+.beitrag .liste { border-top: 1px solid var(--linie); }
+.beitrag .meta { margin-top: 24px; }
+.blaettern { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--linie); font-size: .92rem; }
+.blaettern a { color: var(--nebel-leise); text-decoration: none; max-width: 22em; }
+.blaettern a:hover { color: var(--nebel); }
+@media (max-width: 760px) { .portraet { max-width: 220px; } }
